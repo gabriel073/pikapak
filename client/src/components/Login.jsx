@@ -47,24 +47,24 @@ function Login() {
         }
 
         try {
-            const response = await axios.post('/login', {
+            const response = await axios.post('/login', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
-            })
-            const resJSON = await response.json()
-            console.log('Respuesta de la API:', resJSON)
 
-            if (resJSON.message == 'Authorized') {
+            })
+            // const resJSON = await response.json()
+            // console.log('Respuesta de la API:', resJSON)
+
+            if (response.data.message == 'Authorized') {
                 alert('Logead')
                 console.log('Login con éxito:', formData)
                 setFormData({ email: '', password: '' })
                 navigate('/tutos') // Redirige a la ruta deseada
             } else {
                 setFormErrors({ general: 'Credenciales incorrectas' })
-                console.log('Respuesta de la API:', resJSON) // Verifica la respuesta
+                console.log('Respuesta de la API:', response.data) // Verifica la respuesta
             }
         } catch (error) {
             console.error('Error al iniciar sesión:', error)

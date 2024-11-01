@@ -4,3 +4,6 @@ build_command = "npm install && npm run build"
 
 [start]
 start_command = "npm run start"
+
+[project]
+build_dir = "client"

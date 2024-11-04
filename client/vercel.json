@@ -1,10 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
+  "rewrites": [{ "source": "/users/update", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/(.*)",
